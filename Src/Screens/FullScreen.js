@@ -54,7 +54,7 @@ const FullScreenTab = ({ route, navigation }) => {
             <SafeAreaView>
                 <View className='flex-1 bg-[#121212] h-[100%] w-[100%] p-5'>
                     <Text className='text-white text-xl mb-4 font-["Montserrat"] tracking-tighter'>Sounds</Text>
-
+                    <ScrollView>
                     {sounds ? sounds.audios.map((item, index) => {
                         return (
                             <>
@@ -73,7 +73,7 @@ const FullScreenTab = ({ route, navigation }) => {
                             </>
                         )
                     }): <Text>Loading</Text>}
-
+                    </ScrollView>
                 </View>
             </SafeAreaView>
         </>
