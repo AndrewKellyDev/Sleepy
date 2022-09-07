@@ -16,14 +16,14 @@ const FullScreenTab = ({ route, navigation }) => {
             },
             body: JSON.stringify({ folderId: item.folderID })
         }).then(res => res.json())
-            .then(res => setSounds(res));
+            .then(res => setSounds(res.audios));
     }, [])
 
     var hour = new Date().getHours();
 
     const { item } = route.params;
     console.log(item)
-    console.log(sounds)
+    console.log("Sounds " + sounds)
     return (
         <>
             <Image source={item.image} className='w-full h-[40%] no-repeat z-0 absolute' />
