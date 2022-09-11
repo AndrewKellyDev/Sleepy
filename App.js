@@ -5,6 +5,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import FullScreenTab from './Src/Screens/FullScreen';
+import AudioPlayer from './Src/Screens/AudioPlayer';
 
 export default function App() {
 

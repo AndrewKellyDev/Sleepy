@@ -1,14 +1,13 @@
-import { StyleSheet, Text, View, Image, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity } from 'react-native';
+import { Text, View, Image, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import React, { useState, useEffect } from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import axios from 'react-native-axios'
+import  AudioPlayer  from './AudioPlayer';
 
 const FullScreenTab = ({ route, navigation }) => {
 
     const [sounds, setSounds] = useState()
-
-   
 
     var hour = new Date().getHours();
 
@@ -58,18 +57,19 @@ const FullScreenTab = ({ route, navigation }) => {
                     {sounds ? sounds.audios.map((item, index) => {
                         return (
                             <>
+                             <TouchableOpacity onPress={() => AudioPlayer(item)}>
                                 <View className='flex bg-[#2d2d32] w-[100%] h-20 rounded-lg p-5 mb-4'>
                                     <View className='flex-1 flex-row justify-between items-center'>
                                         <Text className='text-white/70 font-["Montserrat"] tracking-tighter'>{index}</Text>
                                         <Image source={image} className='w-12 h-12 rounded-lg'></Image>
-                                        <Text className='text-white font-bold font-["Montserrat"] tracking-tighter'>{item.name}</Text>
+                                        <Text className='text-white font-bold font-["Montserrat"] tracking-tighter'>{item.name.replace('.mp3','')}</Text>
                                         <Text className='text-white/70 font-["Montserrat"] tracking-tighter'>10:30</Text>
                                         <View className='w-12 h-12 bg-black/30 rounded-lg justify-center items-center'>
                                             <Feather name="play" size={20} color="white" style={{ opacity: 0.5 }} />
                                         </View>
                                     </View>
                                 </View>
-                                
+                            </TouchableOpacity> 
                             </>
                         )
                     }): <Text>Loading</Text>}
